@@ -24,8 +24,6 @@ Other Languages
 
 ## Appendix
 
-* [deepmind/pysc2: StarCraft II Learning Environment](https://github.com/deepmind/pysc2)
-
 ### Other Scripting Game
 
 * [Zachtronics](http://www.zachtronics.com/)
@@ -35,3 +33,22 @@ Other Languages
 
 * [Codecademy - JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
 * [freeCodeCamp - JavaScript](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-javascript)
+
+### Gaming AI
+
+Starcraft II
+
+* [deepmind/pysc2: StarCraft II Learning Environment](https://github.com/deepmind/pysc2)
+
+Hearthstone
+
+* Competition
+  * [AAIA'17 Data Mining Challenge](https://knowledgepit.ml/aaia17-data-mining-challenge/)
+    * [[1708.00730] Helping AI to Play Hearthstone: AAIA'17 Data Mining Challenge](https://arxiv.org/abs/1708.00730)
+    * [Helping AI to Play Hearthstone using Neural Networks](https://annals-csis.org/Volume_11/drp/pdf/561.pdf)
+  * [The Hearthstone-AI Competition](https://dockhorn.antares.uberspace.de/wordpress/)
+    * [[1906.04238] Introducing the Hearthstone-AI Competition](https://arxiv.org/abs/1906.04238)
+    * [ADockhorn/HearthstoneAICompetition: Hearthstone-AI Comeptition 2019](https://github.com/ADockhorn/HearthstoneAICompetition)
+* [HearthSim – Hearthstone Simulation & AI](https://hearthsim.info/)
+  * [HearthSim/SabberStone: Just another Hearthstone Simulator in C# .Net Core, with some A.I. approaches!](https://github.com/HearthSim/SabberStone)
+* [peter1591/hearthstone-ai: A Hearthstone AI based on Monte Carlo tree search and neural nets written in modern C++.](https://github.com/peter1591/hearthstone-ai)
