@@ -4,7 +4,8 @@
 
 * [Screeps - MMO strategy sandbox game for programmers](https://screeps.com/)
   * [Screeps on Steam](https://store.steampowered.com/app/464350/Screeps/)
-  * [Github oragnization](https://github.com/screeps)
+  * [Documents](https://docs.screeps.com/)
+  * [Github organization](https://github.com/screeps)
 * [Tutorial](https://screeps.com/a/#!/sim/tutorial)
   * [screeps/tutorial-scripts: Ready to use code examples from the Screeps tutorial](https://github.com/screeps/tutorial-scripts)
 * [screeps/screeps: A standalone server for programming game Screeps](https://github.com/screeps/screeps)
