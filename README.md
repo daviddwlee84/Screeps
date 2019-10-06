@@ -20,6 +20,17 @@ npm install @types/screeps @types/lodash@3.10.1
 > 2. Create `_reference.js` like this [ScreepsAutocomplete](https://gist.github.com/quonic/d7a7d385c85846027a7ca3dd03a0e985)
 > 3. Create `jsconfig.json` to setup the JavaScript project and fill with `{ "compilerOptions": { "target": "ES6" }, "exclude": [ "node_modules" ] }`
 
+### Committing Script
+
+> * [Committing scripts using external tools | Screeps Documentation](https://docs.screeps.com/commit.html)
+> * [Getting started - Grunt: The JavaScript Task Runner](https://gruntjs.com/getting-started#working-with-an-existing-grunt-project)
+
+1. Install grunt CLI tool `npm install -g grunt-cli`
+2. Install grunt and grunt-screeps `npm install grunt grunt-screeps grunt-contrib-watch --save-dev`
+3. Add the `Gruntfile.js` like [this](ExampleGruntfile.js)
+4. Use `grunt screeps` to upload files!
+5. Use `grunt (watch)` then it will listen all the modification and auto upload!
+
 ### Environment
 
 * [screeps 配置無需遊戲客戶端的開發環境](https://www.jianshu.com/p/ecfe39853306)
