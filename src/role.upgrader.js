@@ -1,24 +1,24 @@
 /*
- * Role of Harvester
+ * Role of Upgrader
  * 1. If it is able to carry energy then go find a source
- * 2. Carry the energy back to spawn when it is full
+ * 2. Carry the energy to the controller and upgrade it
  */
 
-var roleHarvester = {
+var roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        if (creep.carry.energy < creep.carryCapacity) {
+        if (creep.carry.energy == 0) {
             var sources = creep.room.find(FIND_SOURCES);
             if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0]);
             }
         } else {
-            if (creep.transfer(Game.spawns['Spawn1'], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.spawns['Spawn1']);
+            if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.room.controller);
             }
         }
     }
 };
 
-module.exports = roleHarvester;
+module.exports = roleUpgrader;
