@@ -1,12 +1,37 @@
 # Screeps
 
+## Quick Setup
+
+### Autocompletion JavaScript on VSCode
+
+> * [Visual Studio Code Screeps autocomplete. Snippets](https://gitlab.com/snippets/1722234)
+> * [screeps 系列教程5: 使用VSCode進行開發並添加自動補全](https://www.bilibili.com/read/cv3672843/)
+> * [screeps 使用VSCode進行開發並添加自動補全](https://www.twblogs.net/a/5d480d90bd9eee541c3026fe)
+
+```sh
+npm install @types/screeps @types/lodash@3.10.1
+```
+
+> Alternative: Use **ScreepsAutocomplete**
+>
+> * [Howto: Getting VScode to pickup on ScreepsAutocomplete : screeps](https://www.reddit.com/r/screeps/comments/6s8rwz/howto_getting_vscode_to_pickup_on/)
+>
+> 1. Download [Garethp/ScreepsAutocomplete: Autocomplete for Screeps](https://github.com/Garethp/ScreepsAutocomplete) and place it in the same directory
+> 2. Create `_reference.js` like this [ScreepsAutocomplete](https://gist.github.com/quonic/d7a7d385c85846027a7ca3dd03a0e985)
+> 3. Create `jsconfig.json` to setup the JavaScript project and fill with `{ "compilerOptions": { "target": "ES6" }, "exclude": [ "node_modules" ] }`
+
+### Environment
+
+* [screeps 配置無需遊戲客戶端的開發環境](https://www.jianshu.com/p/ecfe39853306)
+  * [screepers/screeps-multimeter: The most useful tool on your screeps workbench.](https://github.com/screepers/screeps-multimeter)
+
 ## Resources
 
 * [Screeps - MMO strategy sandbox game for programmers](https://screeps.com/)
   * [Screeps on Steam](https://store.steampowered.com/app/464350/Screeps/)
   * [Documents](https://docs.screeps.com/)
   * [Github organization](https://github.com/screeps)
-* [Tutorial](https://screeps.com/a/#!/sim/tutorial)
+* [**Tutorial in Sandbox**](https://screeps.com/a/#!/sim/tutorial)
   * [screeps/tutorial-scripts: Ready to use code examples from the Screeps tutorial](https://github.com/screeps/tutorial-scripts)
 * [screeps/screeps: A standalone server for programming game Screeps](https://github.com/screeps/screeps)
 
@@ -21,6 +46,12 @@ Other Languages
 ### Game Turorial
 
 * [YouTube - Screeps Nooby Guide](https://www.youtube.com/playlist?list=PL0EZQ169YGlor5rzeJEYYPE3tGYT2zGT2)
+* [YouTube - Let's Play Screeps with TypeScript and Visual Studio Code](https://www.youtube.com/playlist?list=PLCRhjmqETCePxmtB2mKScrJB_SCAI6jqw)
+
+### Article
+
+* [Screeps - 文集](https://www.jianshu.com/nb/38374718)
+  * [Screeps 介紹及入坑](https://www.jianshu.com/p/da5ffe2c22ee)
 
 ## Appendix
 
@@ -29,10 +60,21 @@ Other Languages
 * [Zachtronics](http://www.zachtronics.com/)
 * [Halite AI Programming Challenge](https://www.halite.io/)
 
-### JavaScript Tutorial
+### Programming Language
+
+#### JavaScript Tutorial
 
 * [Codecademy - JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
 * [freeCodeCamp - JavaScript](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-javascript)
+
+#### TypeScript
+
+* [TypeScript - JavaScript that scales.](https://www.typescriptlang.org/)
+
+TypeScript vs. JavaScript
+
+* [Difference between TypeScript and JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-typescript-and-javascript/)
+* [Typescript vs JavaScript: What's the Difference?](https://www.guru99.com/typescript-vs-javascript.html)
 
 ### Gaming AI
 
