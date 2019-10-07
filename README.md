@@ -49,6 +49,7 @@ npm install @types/screeps @types/lodash@3.10.1
 ### Third Party
 
 * [screepers](https://github.com/screepers) - Community Made Scripts for the Screeps Game
+* [Third Party Tools | Screeps Documentation](https://docs.screeps.com/third-party.html)
 
 Other Languages
 
@@ -63,8 +64,17 @@ Other Languages
 
 * [Screeps - 文集](https://www.jianshu.com/nb/38374718)
   * [Screeps 介紹及入坑](https://www.jianshu.com/p/da5ffe2c22ee)
+* [Screeps: First Steps in Automating Room Planning - Jerroyd Moore](http://www.jerroydmoore.com/blog/screeps-first-steps-in-automating-room-planning)
+
+### Others' Bots
+
+* [ScreepsQuorum/screeps-quorum: Screeps Self Managing and Playing Codebase](https://github.com/ScreepsQuorum/screeps-quorum)
 
 ## Appendix
+
+### QA
+
+* [How do I create a new structure in Screeps?](https://stackoverflow.com/questions/27051872/how-do-i-create-a-new-structure-in-screeps)
 
 ### Other Scripting Game
 
