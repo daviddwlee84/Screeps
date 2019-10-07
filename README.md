@@ -2,6 +2,10 @@
 
 ## Quick Setup
 
+```sh
+npm init
+```
+
 ### Autocompletion JavaScript on VSCode
 
 > * [Visual Studio Code Screeps autocomplete. Snippets](https://gitlab.com/snippets/1722234)
@@ -26,15 +30,23 @@ npm install @types/screeps @types/lodash@3.10.1
 > * [Getting started - Grunt: The JavaScript Task Runner](https://gruntjs.com/getting-started#working-with-an-existing-grunt-project)
 
 1. Install grunt CLI tool `npm install -g grunt-cli`
-2. Install grunt and grunt-screeps `npm install grunt grunt-screeps grunt-contrib-watch --save-dev`
+2. Install grunt and grunt-screeps `npm install grunt grunt-screeps grunt-contrib-watch`
 3. Add the `Gruntfile.js` like [this](ExampleGruntfile.js)
 4. Use `grunt screeps` to upload files!
 5. Use `grunt (watch)` then it will listen all the modification and auto upload!
 
-### Environment
+### Console Without Opening Game
 
-* [screeps 配置無需遊戲客戶端的開發環境](https://www.jianshu.com/p/ecfe39853306)
-  * [screepers/screeps-multimeter: The most useful tool on your screeps workbench.](https://github.com/screepers/screeps-multimeter)
+> * [screeps 配置無需遊戲客戶端的開發環境](https://www.jianshu.com/p/ecfe39853306)
+>   * [screepers/screeps-multimeter: The most useful tool on your screeps workbench.](https://github.com/screepers/screeps-multimeter)
+
+1. Install `screeps-multimeter` by `npm install screeps-multimeter`
+2. Run `multimeter` and it will ask for some information
+   1. API token ([Authentication Tokens | Screeps Documentation](https://docs.screeps.com/auth-tokens.html))
+   2. Shard name (the world you're in)
+   3. Filename for configuration (default is `screeps-multimeter.json`)
+
+> I've add `"scripts": { "start": "multimeter" }` in the `package.json`, so I can use `npm start` to invoke `multimeter`
 
 ## Resources
 

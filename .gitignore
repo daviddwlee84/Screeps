@@ -1,5 +1,7 @@
 # Screeps
 Gruntfile.js
+screeps-multimeter.json
+.screeps-multimeter.history
 
 # Logs
 logs
