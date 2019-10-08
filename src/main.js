@@ -30,7 +30,7 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 
 // Functions
-var countAndRespawn = require('autospawn')
+var spawnCommander = require('autospawn')
 var towerCommander = require('tower')
 
 module.exports.loop = function () {
@@ -51,12 +51,17 @@ module.exports.loop = function () {
     towerCommander.defendRoom('W25S17')
 
     // Respawn with priority
-    var success = countAndRespawn('harvester', 3)
-    if (!success) {
-        var success = countAndRespawn('upgrader', 1)
-    }
-    if (!success) {
-        var success = countAndRespawn('builder', 2)
+    var spawn = Game.spawns['Spawn1'];
+    if (!spawn.spawning) { // Spawn is idle
+        var success = spawnCommander.countAndRespawn(spawn, 'harvester', 3)
+        if (!success) {
+            var success = spawnCommander.countAndRespawn(spawn, 'upgrader', 1)
+        }
+        if (!success) {
+            var success = spawnCommander.countAndRespawn(spawn, 'builder', 2)
+        }
+    } else { // Spawning something
+        spawnCommander.showSpawnInfo(spawn)
     }
 
     // For each creeps sent it to do their role's job

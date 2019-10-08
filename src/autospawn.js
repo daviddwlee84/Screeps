@@ -9,44 +9,44 @@
 
 var capitalizeFirstLetter = require('utils')
 
-var countAndRespawn = function (roleType, count) {
-    var workers = _.filter(Game.creeps, (creep) => creep.memory.role == roleType);
-    var workerName = capitalizeFirstLetter(roleType)
-    console.log(workerName + 's: ' + workers.length);
+module.exports = {
+    countAndRespawn: function (spawn, roleType, count) {
+        var workers = _.filter(Game.creeps, (creep) => creep.memory.role == roleType);
+        var workerName = capitalizeFirstLetter(roleType)
+        console.log(workerName + 's: ' + workers.length);
 
-    // Currently the "[WORK, CARRY, MOVE]" will need 200 energy
-    // Currently the "[WORK, WORK, CARRY, MOVE]" will need 300 energy
-    // Currently the "[WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE]" will need 550 energy
-    if (Game.spawns['Spawn1'].room.energyAvailable < 300) {
-        // Not enough energy
-        return false;
-    }
+        // Currently the "[WORK, CARRY, MOVE]" will need 200 energy
+        // Currently the "[WORK, WORK, CARRY, MOVE]" will need 300 energy
+        // Currently the "[WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE]" will need 550 energy
+        if (spawn.room.energyAvailable < 300) {
+            // Not enough energy
+            return false;
+        }
 
-    if (workers.length < count) {
-        var newName = workerName + Game.time;
-        console.log('Spawning new harvester: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
-            memory: {
-                role: roleType
-            }
-        });
-    } else {
-        // Enough Worker
-        return false;
-    }
+        if (workers.length < count) {
+            var newName = workerName + Game.time;
+            console.log('Spawning new harvester: ' + newName);
+            spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+                memory: {
+                    role: roleType
+                }
+            });
+        } else {
+            // Enough Worker
+            return false;
+        }
 
-    if (Game.spawns['Spawn1'].spawning) {
-        var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
-        Game.spawns['Spawn1'].room.visual.text(
-            '🛠️' + spawningCreep.memory.role,
-            Game.spawns['Spawn1'].pos.x + 1,
-            Game.spawns['Spawn1'].pos.y, {
+        return true;
+    },
+    showSpawnInfo: function (spawn) {
+        var spawningCreep = Game.creeps[spawn.spawning.name];
+        var progress = ((1 - spawn.spawning.remainingTime / spawn.spawning.needTime) * 100).toFixed()
+        spawn.room.visual.text(
+            '🛠️' + spawningCreep.memory.role + ` (${progress}%)`,
+            spawn.pos.x + 1,
+            spawn.pos.y, {
                 align: 'left',
                 opacity: 0.8
             });
     }
-
-    return true;
 }
-
-module.exports = countAndRespawn
