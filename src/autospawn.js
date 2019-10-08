@@ -8,29 +8,38 @@
  */
 
 var capitalizeFirstLetter = require('utils')
+var creepTemplate = require('template.role').creepTemplate
+var roleTypeToJob = require('template.role').roleTypeToJob
 
 module.exports = {
-    countAndRespawn: function (spawn, roleType, count) {
+    countAndRespawn: function (spawn, roleType, creepSize, count) {
         var workers = _.filter(Game.creeps, (creep) => creep.memory.role == roleType);
         var workerName = capitalizeFirstLetter(roleType)
         console.log(workerName + 's: ' + workers.length);
+        // Now assume all the same roleType will use same creepSize
+        // var sameSizeWorkers = _.filter(Game.creeps, (creep) => creep.memory.role == roleType && creep.memory.size == creepSize);
+        // console.log(workerName + creepSize + 's: ' + sameSizeWorkers.length);
 
-        // Currently the "[WORK, CARRY, MOVE]" will need 200 energy
-        // Currently the "[WORK, WORK, CARRY, MOVE]" will need 300 energy
-        // Currently the "[WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE]" will need 550 energy
-        if (spawn.room.energyAvailable < 300) {
+        // Get specific creep type by its role and size
+        var creepType = creepTemplate[roleTypeToJob[roleType]][creepSize];
+        if (spawn.room.energyAvailable < creepType.requiredEnergy) {
             // Not enough energy
             return false;
         }
 
         if (workers.length < count) {
-            var newName = workerName + Game.time;
+            var newName = workerName + creepSize + Game.time;
             console.log('Spawning new harvester: ' + newName);
-            spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+            var ret = spawn.spawnCreep(creepType.bodyContent, newName, {
                 memory: {
-                    role: roleType
+                    role: roleType,
+                    size: creepSize
                 }
             });
+            if (ret == ERR_NOT_ENOUGH_ENERGY) {
+                // Not enough energy
+                return false;
+            }
         } else {
             // Enough Worker
             return false;

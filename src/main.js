@@ -53,12 +53,12 @@ module.exports.loop = function () {
     // Respawn with priority
     var spawn = Game.spawns['Spawn1'];
     if (!spawn.spawning) { // Spawn is idle
-        var success = spawnCommander.countAndRespawn(spawn, 'harvester', 3)
+        var success = spawnCommander.countAndRespawn(spawn, 'harvester', 'Medium', 3)
         if (!success) {
-            var success = spawnCommander.countAndRespawn(spawn, 'upgrader', 1)
+            var success = spawnCommander.countAndRespawn(spawn, 'upgrader', 'Big', 1)
         }
         if (!success) {
-            var success = spawnCommander.countAndRespawn(spawn, 'builder', 2)
+            var success = spawnCommander.countAndRespawn(spawn, 'builder', 'Medium', 2)
         }
     } else { // Spawning something
         spawnCommander.showSpawnInfo(spawn)
