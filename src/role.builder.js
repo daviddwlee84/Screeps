@@ -41,13 +41,26 @@ var roleBuilder = {
                 // Nothing to build, go to repair
                 creep.memory.building = false;
                 creep.memory.reparing = true;
+                creep.say('🔧 repair')
             }
         } else if (creep.memory.reparing) {
-            var closestDamagedStructure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            // Repair the closest own structure (will skip walls since it's neutral structure)
+            var closestDamagedStructure = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
                 filter: (structure) => structure.hits < structure.hitsMax
             });
             if (closestDamagedStructure) {
-                creep.repair(closestDamagedStructure);
+                if (creep.repair(closestDamagedStructure) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(closestDamagedStructure, {
+                        visualizePathStyle: {
+                            stroke: '#aaff00'
+                        }
+                    });
+                }
+            } else {
+                // Nothing to repair
+                creep.memory.building = true;
+                creep.memory.reparing = false;
+                creep.say('🚧 build')
             }
         } else {
             var sources = creep.room.find(FIND_SOURCES);
