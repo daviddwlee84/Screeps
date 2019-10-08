@@ -22,13 +22,14 @@ var roleHarvester = {
             var targets = creep.room.find(FIND_STRUCTURES, {
                 // Find structure that is extension or spawn which energy is not full
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION||
+                    return (structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN ||
                             structure.structureType == STRUCTURE_TOWER) &&
-                            structure.energy < structure.energyCapacity;
+                        structure.energy < structure.energyCapacity;
                 }
             });
             if (targets.length > 0) {
+                creep.memory.idleCount = 0
                 // If found a structure, then transfer energy to the nearest target
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {
@@ -37,6 +38,8 @@ var roleHarvester = {
                         }
                     });
                 }
+            } else {
+                creep.memory.idleCount += 1
             }
         }
     }

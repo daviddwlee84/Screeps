@@ -15,6 +15,7 @@ var roleBuilder = {
         if ((creep.memory.building || creep.memory.reparing) && creep.carry.energy == 0) {
             creep.memory.building = false;
             creep.memory.reparing = false;
+            creep.memory.idleCount = 0
             creep.say('🔄 harvest');
         }
 
@@ -41,6 +42,7 @@ var roleBuilder = {
                 // Nothing to build, go to repair
                 creep.memory.building = false;
                 creep.memory.reparing = true;
+                creep.memory.idleCount += 1
                 creep.say('🔧 repair')
             }
         } else if (creep.memory.reparing) {
@@ -60,6 +62,7 @@ var roleBuilder = {
                 // Nothing to repair
                 creep.memory.building = true;
                 creep.memory.reparing = false;
+                creep.memory.idleCount += 1
                 creep.say('🚧 build')
             }
         } else {

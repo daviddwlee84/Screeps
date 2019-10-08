@@ -33,11 +33,11 @@ module.exports = {
             var ret = spawn.spawnCreep(creepType.bodyContent, newName, {
                 memory: {
                     role: roleType,
-                    size: creepSize
+                    size: creepSize,
+                    idleCount: 0
                 }
             });
-            if (ret == ERR_NOT_ENOUGH_ENERGY) {
-                // Not enough energy
+            if (ret != OK) {
                 return false;
             }
         } else {
