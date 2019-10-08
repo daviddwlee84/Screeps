@@ -17,8 +17,10 @@
 // Build Structure
 // Extension
 // Game.rooms['W25S17'].createConstructionSite( 32, 36, STRUCTURE_EXTENSION );
+// Rampart
+// Game.rooms['W25S17'].createConstructionSite( 27, 44, STRUCTURE_RAMPART );
 // Tower
-// Game.spawns['Spawn1'].room.createConstructionSite( 23, 22, STRUCTURE_TOWER );
+// Game.spawns['Spawn1'].room.createConstructionSite( 30, 43, STRUCTURE_TOWER );
 // Activate safe mode
 // Game.spawns['Spawn1'].room.controller.activateSafeMode();
 
@@ -29,6 +31,7 @@ var roleBuilder = require('role.builder');
 
 // Functions
 var countAndRespawn = require('autospawn')
+var towerCommander = require('tower')
 
 module.exports.loop = function () {
 
@@ -45,10 +48,12 @@ module.exports.loop = function () {
         }
     }
 
+    towerCommander.defendRoom('W25S17')
+
     // Respawn with priority
-    var success = countAndRespawn('harvester', 2)
+    var success = countAndRespawn('harvester', 3)
     if (!success) {
-        var success = countAndRespawn('upgrader', 2)
+        var success = countAndRespawn('upgrader', 1)
     }
     if (!success) {
         var success = countAndRespawn('builder', 2)
