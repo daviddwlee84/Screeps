@@ -57,6 +57,7 @@ npm install @types/screeps @types/lodash@3.10.1
 * [**Tutorial in Sandbox**](https://screeps.com/a/#!/sim/tutorial)
   * [screeps/tutorial-scripts: Ready to use code examples from the Screeps tutorial](https://github.com/screeps/tutorial-scripts)
 * [screeps/screeps: A standalone server for programming game Screeps](https://github.com/screeps/screeps)
+* [Screeps Wiki | FANDOM powered by Wikia](https://screeps.fandom.com/wiki/Screeps_Wiki)
 
 ### Third Party
 
@@ -80,13 +81,11 @@ Other Languages
 
 ### Others' Bots
 
+* [KasamiBot | Autonomous Screeps AI](https://kasami.github.io/kasamibot/features.html)
+  * [kasami/kasamibot: Autonomous bot for the programmer RTS-game Screeps](https://github.com/kasami/kasamibot)
 * [ScreepsQuorum/screeps-quorum: Screeps Self Managing and Playing Codebase](https://github.com/ScreepsQuorum/screeps-quorum)
 
 ## Appendix
-
-### QA
-
-* [How do I create a new structure in Screeps?](https://stackoverflow.com/questions/27051872/how-do-i-create-a-new-structure-in-screeps)
 
 ### Other Scripting Game
 
