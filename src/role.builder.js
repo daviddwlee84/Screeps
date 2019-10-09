@@ -7,6 +7,10 @@
  * 4. If in harvest mode then go find a energy source
  */
 
+var BUILDER_REPAIR_CONFIG = require('config').REPAIR.BUILDER
+var damagedStructFilter = require('filter').findDamagedStructWithRatio
+var commonMethod = require('common.role')
+
 var roleBuilder = {
 
     /** @param {Creep} creep **/
@@ -15,7 +19,7 @@ var roleBuilder = {
         if ((creep.memory.building || creep.memory.reparing) && creep.carry.energy == 0) {
             creep.memory.building = false;
             creep.memory.reparing = false;
-            creep.memory.idleCount = 0
+            creep.memory.idleCount = 0;
             creep.say('🔄 harvest');
         }
 
@@ -43,22 +47,15 @@ var roleBuilder = {
                 creep.memory.building = false;
                 creep.memory.reparing = true;
                 creep.memory.idleCount += 1
-                creep.say('🔧 repair')
+                creep.say('🔧 repair');
             }
         } else if (creep.memory.reparing) {
             // Repair the closest own structure (will skip walls since it's neutral structure)
-            // var closestDamagedStructure = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
-            //     filter: (structure) => structure.hits < structure.hitsMax
-            // });
-            var damagedStructures = creep.room.find(FIND_MY_STRUCTURES, {
-                filter: (structure) => structure.hits < structure.hitsMax
-            });
-            // Repair the structure with lowest hit points
-            sortedDamagedStructure = _.sortBy(damagedStructures, s => s.hits)
-            var closestDamagedStructure = sortedDamagedStructure[0]
-            if (closestDamagedStructure) {
-                if (creep.repair(closestDamagedStructure) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(closestDamagedStructure, {
+            // var structure = findDamagedStructWithRatio.Closest(creep, BUILDER_REPAIR_CONFIG.TARGET, BUILDER_REPAIR_CONFIG.RATIO);
+            var structure = damagedStructFilter.Lowest(creep, BUILDER_REPAIR_CONFIG.TARGET, BUILDER_REPAIR_CONFIG.RATIO);
+            if (structure) {
+                if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(structure, {
                         visualizePathStyle: {
                             stroke: '#aaff00'
                         }
@@ -71,15 +68,8 @@ var roleBuilder = {
                 creep.memory.idleCount += 1
                 creep.say('🚧 build')
             }
-        } else {
-            var sources = creep.room.find(FIND_SOURCES);
-            if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {
-                    visualizePathStyle: {
-                        stroke: '#ffaa00'
-                    }
-                });
-            }
+        } else { // Harvest
+            commonMethod.harvestEnergyByIndex(1)
         }
     }
 };

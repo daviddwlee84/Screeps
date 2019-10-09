@@ -1,3 +1,6 @@
+var TOWER_REPAIR_CONFIG = require('config').REPAIR.TOWER
+var damagedStructFilter = require('filter').findDamagedStructWithRatio
+
 module.exports = {
     // Order all the tower in that room attack or repair the structure
     defendRoom: function (roomName) {
@@ -14,9 +17,7 @@ module.exports = {
             towers.forEach(tower => tower.attack(hostiles[0]));
         } else { // Otherwise repair the closest damaged structure (including walls)
             towers.forEach(tower => {
-                var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-                    filter: (structure) => structure.hits < structure.hitsMax * 0.5
-                });
+                var closestDamagedStructure = damagedStructFilter.Closest(tower, TOWER_REPAIR_CONFIG.TARGET, TOWER_REPAIR_CONFIG.RATIO)
                 if (closestDamagedStructure) {
                     tower.repair(closestDamagedStructure);
                 }
