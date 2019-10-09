@@ -1,6 +1,6 @@
 function buildRoadFromAToB(ObjA, ObjB) {
     var route = ObjA.pos.findPathTo(ObjB.pos);
-    for (var i = 0; i < route.length; i++) {
+    for (var i = 0; i < route.length - 1; i++) { // length-1 so we don't build on the target
         // Assume ObjA and ObjB is in same room
         ObjA.room.createConstructionSite(route[i].x, route[i].y, STRUCTURE_ROAD);
     }
