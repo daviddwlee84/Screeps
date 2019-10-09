@@ -4,21 +4,15 @@
  * 2. Carry the energy back to spawn when it is full
  */
 
+var commonMethod = require('common.role')
+
 var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
         if (creep.carry.energy < creep.carryCapacity) {
             // Harvest energy when the capacity is not full
-            // Only harvest the closest energy sources that is active 
-            var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(source, {
-                    visualizePathStyle: {
-                        stroke: '#ffaa00'
-                    }
-                });
-            }
+            commonMethod.harvestClosestValidEnergy(creep)
         } else {
             var targets = creep.room.find(FIND_STRUCTURES, {
                 // Find structure that is extension or spawn which energy is not full
