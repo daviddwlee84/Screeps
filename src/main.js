@@ -33,7 +33,14 @@ var roleBuilder = require('role.builder');
 var spawnCommander = require('autospawn')
 var towerCommander = require('tower')
 
+// Scripts
+// var building = require('building')
+
 module.exports.loop = function () {
+
+    // Use these when needed
+    // building.buildRoadFromSpawnToSources('Spawn1')
+    // building.buildRoadFromSourceToController('5bbcab8e9099fc012e633ca6')
 
     for (var name in Game.rooms) {
         // Showing the current energy that we have
