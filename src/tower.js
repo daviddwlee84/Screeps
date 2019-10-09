@@ -13,7 +13,6 @@ module.exports = {
             Game.notify(`User ${username} spotted in room ${roomName}`);
             towers.forEach(tower => tower.attack(hostiles[0]));
         } else { // Otherwise repair the closest damaged structure (including walls)
-            towers.forEach(tower => tower.attack(hostiles[0]));
             towers.forEach(tower => {
                 var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => structure.hits < structure.hitsMax * 0.5
