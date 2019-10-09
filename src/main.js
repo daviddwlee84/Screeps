@@ -38,6 +38,7 @@ module.exports.loop = function () {
     for (var name in Game.rooms) {
         // Showing the current energy that we have
         console.log('Room "' + name + '" has ' + Game.rooms[name].energyAvailable + ' energy');
+        towerCommander.defendRoom(name)
     }
 
     for (var name in Memory.creeps) {
@@ -47,8 +48,6 @@ module.exports.loop = function () {
             console.log('Clearing non-existing creep memory:', name);
         }
     }
-
-    towerCommander.defendRoom('W25S17')
 
     // Respawn with priority
     var spawn = Game.spawns['Spawn1'];
