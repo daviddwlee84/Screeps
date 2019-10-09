@@ -47,9 +47,15 @@ var roleBuilder = {
             }
         } else if (creep.memory.reparing) {
             // Repair the closest own structure (will skip walls since it's neutral structure)
-            var closestDamagedStructure = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
+            // var closestDamagedStructure = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
+            //     filter: (structure) => structure.hits < structure.hitsMax
+            // });
+            var damagedStructures = creep.room.find(FIND_MY_STRUCTURES, {
                 filter: (structure) => structure.hits < structure.hitsMax
             });
+            // Repair the structure with lowest hit points
+            sortedDamagedStructure = _.sortBy(damagedStructures, s => s.hits)
+            var closestDamagedStructure = sortedDamagedStructure[0]
             if (closestDamagedStructure) {
                 if (creep.repair(closestDamagedStructure) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(closestDamagedStructure, {
