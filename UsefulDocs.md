@@ -27,6 +27,10 @@ Body part cost
 * `WORK`: 100
 * `CARRY`: 50
 
+([**screeps body calculator**!!](https://codepen.io/findoff/details/RPmqOd))
+
+> * [Is there a way to check to body parts of a creep? | Screeps Forum](https://screeps.com/forum/topic/1819/is-there-a-way-to-check-to-body-parts-of-a-creep)
+
 ## Structure
 
 * Extension
@@ -38,6 +42,20 @@ Body part cost
 * Tower
   * [StructureTower](https://docs.screeps.com/api/#StructureTower)
 
+## Resources
+
+### Sources
+
+* `FIND_SOURCES`
+* creep.harvest
+
+### Dropped Resources
+
+* `FIND_DROPPED_RESOURCES`
+* creep.pickup
+
+> * [Only pick up energy?](https://screeps.com/forum/topic/846/only-pick-up-energy)
+
 ## Global Objects
 
 * [Global Objects | Screeps Documentation](https://docs.screeps.com/global-objects.html)
@@ -47,6 +65,12 @@ Body part cost
 > * [doc](https://docs.screeps.com/api/#Game)
 
 ### Memory
+
+## Utilities
+
+* `_.filter`
+* `_.sortBy`
+  * [Is there anyway to sort a find() by the closest Objects? : screeps](https://www.reddit.com/r/screeps/comments/52fguz/is_there_anyway_to_sort_a_find_by_the_closest/)
 
 ## Path Related
 

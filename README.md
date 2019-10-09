@@ -99,9 +99,12 @@ Other Languages
 * [Codecademy - JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
 * [freeCodeCamp - JavaScript](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-javascript)
 
+> * [Selecting last element in JavaScript array - Stack Overflow](https://stackoverflow.com/questions/9050345/selecting-last-element-in-javascript-array)
+
 #### TypeScript
 
 * [TypeScript - JavaScript that scales.](https://www.typescriptlang.org/)
+  * [microsoft/TypeScript: TypeScript is a superset of JavaScript that compiles to clean JavaScript output.](https://github.com/microsoft/TypeScript)
 
 TypeScript vs. JavaScript
 

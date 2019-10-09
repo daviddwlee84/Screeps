@@ -44,3 +44,8 @@
   * [ ] RCL progress
 * Creeps management
   * renewCreep & [recycleCreep](https://docs.screeps.com/api/#StructureSpawn.recycleCreep) of StructureSpawn
+* Scout the nearby rooms and report
+* Harvest and collect the resources across rooms
+* Setup an attack in a certain room
+* Claim a room
+* Auto build defence nearby a controller and spawn
