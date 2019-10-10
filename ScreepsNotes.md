@@ -43,6 +43,11 @@ Management
 
 * [My Replay?!](screeps.com/s/eF8bc3)
 
+### Useful Tips
+
+* To output an object content into the console, use `JSON.stringify`.
+* There is a keyword `debugger` in the simulator that stops your script in the browser.
+
 ### QA
 
 * [How do I create a new structure in Screeps?](https://stackoverflow.com/questions/27051872/how-do-i-create-a-new-structure-in-screeps)
@@ -51,6 +56,9 @@ Management
     * ~~By spawn: `Game.spawns['Spawn1'].room`~~
     * By any game object: `gameObj.room`
       * e.g. creeps, spawns, ...
+* [Basic repair script? :: Screeps Help](https://steamcommunity.com/app/464350/discussions/5/3223871682612654420/)
+* [Harvesting from multiple sources within a room | Screeps Forum](https://screeps.com/forum/topic/2364/harvesting-from-multiple-sources-within-a-room)
+* [How can harvest energy from any container ? :: Screeps Help](https://steamcommunity.com/app/464350/discussions/5/133255810028097872/)
 * [Range of towers attack?](https://steamcommunity.com/app/464350/discussions/0/3182216552778656960/)
   * The towers can attack everything in the room when the towers are. Their efficiency decrease with range to a target.
 

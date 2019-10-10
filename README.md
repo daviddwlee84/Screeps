@@ -83,6 +83,7 @@ Other Languages
 
 * [KasamiBot | Autonomous Screeps AI](https://kasami.github.io/kasamibot/features.html)
   * [kasami/kasamibot: Autonomous bot for the programmer RTS-game Screeps](https://github.com/kasami/kasamibot)
+* [screeps.space/hivemind: a screeps bot](https://git.estate/screeps.space/hivemind)
 * [ScreepsQuorum/screeps-quorum: Screeps Self Managing and Playing Codebase](https://github.com/ScreepsQuorum/screeps-quorum)
 
 ## Appendix

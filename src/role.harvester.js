@@ -14,6 +14,7 @@ var roleHarvester = {
             // Harvest energy when the capacity is not full
             commonMethod.harvestClosestValidEnergy(creep)
         } else {
+            // Priority: Extension > Spawn because Spawn will regenerate by itself?!
             var targets = creep.room.find(FIND_STRUCTURES, {
                 // Find structure that is extension or spawn which energy is not full
                 filter: (structure) => {

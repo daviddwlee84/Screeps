@@ -27,7 +27,8 @@
 
 ## Role
 
-* Make specialized repair unit?!
+* Make specialized repair unit?! => Maintainer
+  * [Repair (STRUCTURE_)ROAD | Screeps Forum](https://screeps.com/forum/topic/1550/repair-structure_-road)
 
 ### Harvester
 
@@ -36,7 +37,11 @@
 ## Just TODO
 
 * Look for how to get greater resource than just energy
-* Build road
+* [ ] Collect **thombstone**
+  * [Finally support picking up stuff from tombstones. · 1464015767 - git.estate](https://git.estate/screeps.space/hivemind/commit/1464015767fca8503c067a3e552101a04fb91eb3)
+  * [Creep death: more than just a delete | Screeps Forum](https://screeps.com/forum/topic/2075/creep-death-more-than-just-a-delete)
+  * [The first major game update in 2018! : screeps](https://www.reddit.com/r/screeps/comments/82692t/the_first_major_game_update_in_2018/)
+* [X] Build road
 * Maintain rampert and maybe road since its durability will decay by time
 * Overall status report
   * [X] Room energy
@@ -45,7 +50,9 @@
 * Creeps management
   * renewCreep & [recycleCreep](https://docs.screeps.com/api/#StructureSpawn.recycleCreep) of StructureSpawn
 * Scout the nearby rooms and report
+  * room id + position + game object id?!
 * Harvest and collect the resources across rooms
 * Setup an attack in a certain room
 * Claim a room
 * Auto build defence nearby a controller and spawn
+* Add & Update comments
