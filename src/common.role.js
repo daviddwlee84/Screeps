@@ -73,5 +73,32 @@ module.exports = {
             }
         }
         return source;
+    },
+    // ==== Attack ====
+    attackClosestHostileWorker: function (creep) {
+        const target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+            filter: function (hostileCreep) {
+                // Find hostile creeps that can't fight back
+                return hostileCreep.getActiveBodyparts(ATTACK) == 0 &&
+                    hostileCreep.getActiveBodyparts(RANGED_ATTACK) == 0;
+            }
+        });
+        if (target) {
+            // Priority: ranged attack > melee attack
+            if (creep.getActiveBodyparts(RANGED_ATTACK) > 0) { // Long-distance attack
+                var ret = creep.rangeAttack(target);
+            } else if (creep.getActiveBodyparts(ATTACK) > 0) { // Melee attack
+                var ret = creep.attack(target)
+            } else {
+                console.log(`Creep ${creep.name} don't have any valid attack body part...`)
+            }
+            if (ret == ERR_NOT_IN_RANGE) {
+                creep.moveTo(source, {
+                    visualizePathStyle: {
+                        stroke: '#ff0000'
+                    }
+                });
+            }
+        }
     }
 }
