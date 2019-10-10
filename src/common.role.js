@@ -29,15 +29,19 @@ module.exports = {
                     break;
 
                 case ERR_NOT_ENOUGH_RESOURCES:
-                    var route = creep.pos.findPathTo(sources[index]);
-                    if (route.length > 3) { // Go to nearby position and stay
-                        creep.moveTo(route[route.length - 3].x, route[route.length - 3].y, {
-                            visualizePathStyle: {
-                                stroke: '#ffaa00'
-                            }
-                        });
-                    } else {
-                        creep.say('😕 waiting')
+                    // Go find droped energy if nothing to harvest
+                    // Otherwise, go to nearby position and standby
+                    if (this.collectDroppedEnergy(creep) == undefined) {
+                        var route = creep.pos.findPathTo(sources[index]);
+                        if (route.length > 3) { // Go to nearby (3 path away) position and stay
+                            creep.moveTo(route[route.length - 3].x, route[route.length - 3].y, {
+                                visualizePathStyle: {
+                                    stroke: '#ffaa00'
+                                }
+                            });
+                        } else {
+                            creep.say('😕 waiting');
+                        }
                     }
                     break;
 
@@ -52,8 +56,22 @@ module.exports = {
                     break;
             }
         } else {
-            console.log(`${creep.name} attempts to harvest source with index ${index} >= ${sources.length} is not valid`)
+            console.log(`${creep.name} attempts to harvest source with index ${index} >= ${sources.length} is not valid`);
         }
-    }
+    },
     // --------------------------------
+    // ==== Collect ====
+    collectDroppedEnergy: function (creep) {
+        var source = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
+        if (source) {
+            if (creep.pickup(source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(source, {
+                    visualizePathStyle: {
+                        stroke: '#aaaa00'
+                    }
+                });
+            }
+        }
+        return source;
+    }
 }
