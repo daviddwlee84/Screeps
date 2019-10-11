@@ -4,7 +4,7 @@
  * 2. Carry the energy back to spawn when it is full
  */
 
-var ENERGY_CONFIG = require('config').ENERGY
+var ENERGY_CONFIG = require('config.global').ENERGY
 var commonMethod = require('common.role')
 var findClosestStructByPriority = require('filter').findClosestStructByPriority
 

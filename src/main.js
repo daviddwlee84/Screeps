@@ -30,7 +30,7 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 
 // Functions
-var spawnCommander = require('autospawn')
+var spawnManager = require('manager.spawn')
 var towerCommander = require('tower')
 
 // Scripts
@@ -57,13 +57,9 @@ module.exports.loop = function () {
         }
     }
 
-    // Respawn with priority
-    var spawn = Game.spawns['Spawn1'];
-    spawnCommander.countAndRespawn(spawn, 'harvester', 'Medium', 3)
-    spawnCommander.countAndRespawn(spawn, 'upgrader', 'Big', 1)
-    spawnCommander.countAndRespawn(spawn, 'builder', 'Medium', 2)
-    if (spawn.spawning) { // Spawning something
-        spawnCommander.showSpawnInfo(spawn)
+    for (var name in Game.spawns) {
+        // Handle for each spawn according to its room's RCL level
+        spawnManager.main(Game.spawns[name]);
     }
 
     // For each creeps sent it to do their role's job

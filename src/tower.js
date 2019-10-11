@@ -1,4 +1,4 @@
-var TOWER_REPAIR_CONFIG = require('config').REPAIR.TOWER
+var TOWER_REPAIR_CONFIG = require('config.global').REPAIR.TOWER
 var damagedStructFilter = require('filter').findDamagedStructWithRatio
 
 module.exports = {

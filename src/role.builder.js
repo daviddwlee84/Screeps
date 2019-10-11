@@ -7,7 +7,7 @@
  * 4. If in harvest mode then go find a energy source
  */
 
-var BUILDER_REPAIR_CONFIG = require('config').REPAIR.BUILDER
+var BUILDER_REPAIR_CONFIG = require('config.global').REPAIR.BUILDER
 var damagedStructFilter = require('filter').findDamagedStructWithRatio
 var commonMethod = require('common.role')
 
