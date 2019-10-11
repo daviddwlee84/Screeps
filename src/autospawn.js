@@ -27,7 +27,7 @@ module.exports = {
             return false;
         }
 
-        if (workers.length < count) {
+        if (!spawn.spawning && workers.length < count) {
             var newName = workerName + creepSize + Game.time;
             console.log('Spawning new harvester: ' + newName);
             var ret = spawn.spawnCreep(creepType.bodyContent, newName, {

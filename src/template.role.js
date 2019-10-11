@@ -49,6 +49,9 @@ module.exports = {
     roleTypeToJob: {
         'harvester': 'worker',
         'upgrader': 'worker',
-        'builder': 'worker'
+        'builder': 'worker',
+        // Just a simple projection
+        'worker': 'worker',
+        'remoteWorker': 'remoteWorker'
     }
 }

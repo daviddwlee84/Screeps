@@ -73,7 +73,8 @@ var roleBuilder = {
                 creep.say('🚧 build')
             }
         } else { // Harvest
-            commonMethod.harvestEnergyByIndex(creep, 1)
+            commonMethod.harvestClosestValidEnergy(creep)
+            // commonMethod.harvestEnergyByIndex(creep, 1)
         }
     }
 };

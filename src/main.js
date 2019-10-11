@@ -41,6 +41,7 @@ module.exports.loop = function () {
     // Use these when needed
     // building.buildRoadFromSpawnToSources('Spawn1')
     // building.buildRoadFromSourceToController('5bbcab8e9099fc012e633ca6')
+    // building.buildRoadFromPosToPosInRoom(27, 45, 0, 37, 'W25S17')
 
     for (var name in Game.rooms) {
         // Showing the current energy that we have
@@ -58,15 +59,10 @@ module.exports.loop = function () {
 
     // Respawn with priority
     var spawn = Game.spawns['Spawn1'];
-    if (!spawn.spawning) { // Spawn is idle
-        var success = spawnCommander.countAndRespawn(spawn, 'harvester', 'Small', 3)
-        if (!success) {
-            var success = spawnCommander.countAndRespawn(spawn, 'upgrader', 'Medium', 1)
-        }
-        if (!success) {
-            var success = spawnCommander.countAndRespawn(spawn, 'builder', 'Medium', 2)
-        }
-    } else { // Spawning something
+    spawnCommander.countAndRespawn(spawn, 'harvester', 'Medium', 3)
+    spawnCommander.countAndRespawn(spawn, 'upgrader', 'Big', 1)
+    spawnCommander.countAndRespawn(spawn, 'builder', 'Medium', 2)
+    if (spawn.spawning) { // Spawning something
         spawnCommander.showSpawnInfo(spawn)
     }
 
