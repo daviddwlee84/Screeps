@@ -51,9 +51,7 @@ var roleBuilder = {
             }
         } else if (creep.memory.repairing) {
             if (creep.memory.target == undefined) {
-                // Repair the closest own structure (will skip walls since it's neutral structure)
-                // var structure = damagedStructFilter.Closest(creep, BUILDER_REPAIR_CONFIG.TARGET, BUILDER_REPAIR_CONFIG.RATIO);
-                var structure = damagedStructFilter.Lowest(creep, BUILDER_REPAIR_CONFIG.TARGET, BUILDER_REPAIR_CONFIG.RATIO);
+                var structure = damagedStructFilter.Lowest(creep, BUILDER_REPAIR_CONFIG);
             } else {
                 var structure = Game.getObjectById(creep.memory.target);
             }

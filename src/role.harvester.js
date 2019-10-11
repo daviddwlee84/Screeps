@@ -4,7 +4,9 @@
  * 2. Carry the energy back to spawn when it is full
  */
 
+var ENERGY_CONFIG = require('config').ENERGY
 var commonMethod = require('common.role')
+var findClosestStructByPriority = require('filter').findClosestStructByPriority
 
 var roleHarvester = {
 
@@ -16,22 +18,12 @@ var roleHarvester = {
         }
         // If creep still has energy, then go find other target
         if (!creep.memory.harvesting && creep.carry.energy > 0) {
-            // Priority: Extension > Spawn because Spawn will regenerate by itself?!
-            var targets = creep.room.find(FIND_STRUCTURES, {
-                // Find structure that is extension or spawn which energy is not full
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION ||
-                            structure.structureType == STRUCTURE_SPAWN ||
-                            // TODO: remove tower when we have Maintainer
-                            structure.structureType == STRUCTURE_TOWER) &&
-                        structure.energy < structure.energyCapacity;
-                }
-            });
-            if (targets.length > 0) {
+            var target = findClosestStructByPriority(creep,
+                ENERGY_CONFIG.TRANSFER.TARGET, ENERGY_CONFIG.TRANSFER.SPECIFIC,
+                (structure) => structure.energy < structure.energyCapacity
+            );
+            if (target) {
                 creep.memory.idleCount = 0
-                // Transfer the energy source to the closest target
-                sortedByRangeTarget = _.sortBy(targets, t => creep.pos.getRangeTo(t))
-                target = sortedByRangeTarget[0]
                 // If found a structure, then transfer energy to the nearest target
                 if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {

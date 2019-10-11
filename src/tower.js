@@ -17,7 +17,7 @@ module.exports = {
             towers.forEach(tower => tower.attack(hostiles[0]));
         } else { // Otherwise repair the closest damaged structure (including walls)
             towers.forEach(tower => {
-                var closestDamagedStructure = damagedStructFilter.Closest(tower, TOWER_REPAIR_CONFIG.TARGET, TOWER_REPAIR_CONFIG.RATIO)
+                var closestDamagedStructure = damagedStructFilter.Closest(tower, TOWER_REPAIR_CONFIG)
                 if (closestDamagedStructure) {
                     tower.repair(closestDamagedStructure);
                 }
