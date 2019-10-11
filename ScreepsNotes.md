@@ -81,3 +81,7 @@ SoundTrack
 
 * `ReplyError: OOM command not allowed when used memory > 'maxmemory'`
   * Maybe just refresh page and login again
+
+JavaScript
+
+* [oop - Access parent's parent from javascript object - Stack Overflow](https://stackoverflow.com/questions/183702/access-parents-parent-from-javascript-object)

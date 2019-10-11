@@ -59,6 +59,10 @@ npm install @types/screeps @types/lodash@3.10.1
 * [screeps/screeps: A standalone server for programming game Screeps](https://github.com/screeps/screeps)
 * [Screeps Wiki | FANDOM powered by Wikia](https://screeps.fandom.com/wiki/Screeps_Wiki)
 
+Updates
+
+* [Screeps IDE alpha release | Screeps Blog](https://blog.screeps.com/2019/08/ide/)
+
 ### Third Party
 
 * [screepers](https://github.com/screepers) - Community Made Scripts for the Screeps Game
@@ -83,8 +87,13 @@ Other Languages
 
 * [KasamiBot | Autonomous Screeps AI](https://kasami.github.io/kasamibot/features.html)
   * [kasami/kasamibot: Autonomous bot for the programmer RTS-game Screeps](https://github.com/kasami/kasamibot)
+* [Arcath/screeps-code: My code for the programmers MMO Screeps](https://github.com/Arcath/screeps-code/tree/master) - This guy build an OS...
+  * [Screeps Part 1 – RC1 & RC2 / Adam Laycock](https://www.arcath.net/2016/11/screeps-part-1-rc1-rc2/)
+  * [Screeps Part 2 – RC3 & Beginnings of Multi-room / Adam Laycock](https://www.arcath.net/2016/11/screeps-part-2-rc3)
+  * [Screeps Part 3 ... 22](https://www.arcath.net/articles/screeps)
 * [screeps.space/hivemind: a screeps bot](https://git.estate/screeps.space/hivemind)
 * [ScreepsQuorum/screeps-quorum: Screeps Self Managing and Playing Codebase](https://github.com/ScreepsQuorum/screeps-quorum)
+* [Screeps | Trello by kamyl](https://trello.com/b/y6cLhk5L/screeps)
 
 ## Appendix
 
