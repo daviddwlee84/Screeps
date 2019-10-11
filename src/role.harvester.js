@@ -10,10 +10,12 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        if (creep.carry.energy < creep.carryCapacity) {
-            // Harvest energy when the capacity is not full
-            commonMethod.harvestClosestValidEnergy(creep)
-        } else {
+        if (creep.memory.harvesting && creep.carry.energy == creep.carryCapacity) {
+            creep.memory.harvesting = false;
+            creep.say('🔃transfer')
+        }
+        // If creep still has energy, then go find other target
+        if (!creep.memory.harvesting && creep.carry.energy > 0) {
             // Priority: Extension > Spawn because Spawn will regenerate by itself?!
             var targets = creep.room.find(FIND_STRUCTURES, {
                 // Find structure that is extension or spawn which energy is not full
@@ -34,13 +36,25 @@ var roleHarvester = {
                 if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {
                         visualizePathStyle: {
-                            stroke: '#ffffff'
+                            stroke: '#ffaa00'
                         }
                     });
                 }
-            } else {
+            } else if (creep.carry.energy == creep.carryCapacity) {
+                // No where to go (no valid target and can't go harvest)
                 creep.memory.idleCount += 1
+            } else {
+                // No valid target but have capacity
+                creep.memory.harvesting = true;
+                creep.say('🔄 harvest');
             }
+        } else if (!creep.memory.harvesting && creep.carry.energy == 0) {
+            creep.memory.harvesting = true;
+            creep.say('🔄 harvest');
+        }
+
+        if (creep.memory.harvesting) {
+            commonMethod.harvestClosestValidEnergy(creep)
         }
     }
 };
