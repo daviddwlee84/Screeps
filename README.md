@@ -75,6 +75,7 @@ Other Languages
 ### Game Turorial
 
 * [YouTube - Screeps Nooby Guide](https://www.youtube.com/playlist?list=PL0EZQ169YGlor5rzeJEYYPE3tGYT2zGT2)
+  * [thPion/Screeps-Nooby-Guide: Code used in my Screeps Nooby Guide video series](https://github.com/thPion/Screeps-Nooby-Guide)
 * [YouTube - Let's Play Screeps with TypeScript and Visual Studio Code](https://www.youtube.com/playlist?list=PLCRhjmqETCePxmtB2mKScrJB_SCAI6jqw)
 
 ### Article

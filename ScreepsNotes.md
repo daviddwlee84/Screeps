@@ -47,6 +47,10 @@ Management
 
 * To output an object content into the console, use `JSON.stringify`.
 * There is a keyword `debugger` in the simulator that stops your script in the browser.
+* You can output HTML content to the console, like links to rooms.
+* Save CPU
+  * A good way to save CPU is caching ofen-used paths.
+  * To save your CPU, use less creeps of a larger size.
 
 ### QA
 
