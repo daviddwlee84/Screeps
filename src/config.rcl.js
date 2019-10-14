@@ -18,6 +18,10 @@ module.exports = {
                 creepSize: 'Small',
                 minAmount: 1
             },
+            'builder': {
+                creepSize: 'Small',
+                minAmount: 1
+            },
         }
     },
     2: {
@@ -55,7 +59,7 @@ module.exports = {
     4: {
         Spawn: {
             'harvester': {
-                creepSize: 'Medium',
+                creepSize: 'Big',
                 minAmount: 4
             },
             'upgrader': {
@@ -63,7 +67,23 @@ module.exports = {
                 minAmount: 1
             },
             'builder': {
-                creepSize: 'Medium',
+                creepSize: 'Big',
+                minAmount: 2
+            },
+        }
+    },
+    5: {
+        Spawn: {
+            'harvester': {
+                creepSize: 'Big',
+                minAmount: 3
+            },
+            'upgrader': {
+                creepSize: 'Large',
+                minAmount: 1
+            },
+            'builder': {
+                creepSize: 'Big',
                 minAmount: 2
             },
         }

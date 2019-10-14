@@ -20,8 +20,8 @@ module.exports = {
             'Large': { // Need energy of entire spawn and 20 full extensions (RCL 4)
                 requiredEnergy: 1300,
                 bodyContent: [WORK, WORK, WORK, WORK, WORK, WORK,
-                    CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-                    MOVE, MOVE, MOVE, MOVE
+                    CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+                    MOVE, MOVE, MOVE, MOVE, MOVE
                 ]
             },
         },

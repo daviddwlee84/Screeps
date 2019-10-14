@@ -27,9 +27,11 @@ module.exports = {
             // TODO
         },
         TRANSFER: { // Transfer to
-            TARGET: FIND_STRUCTURES,
+            TARGET: FIND_MY_STRUCTURES,
             // Priority: Extension > Spawn because Spawn will regenerate by itself
-            SPECIFIC: [STRUCTURE_EXTENSION, STRUCTURE_SPAWN, STRUCTURE_TOWER]
+            // STRUCTURE_STORAGE here seems doesn't work?!
+            // Current hard-coded by using `creep.room.storage`
+            SPECIFIC: [STRUCTURE_EXTENSION, STRUCTURE_SPAWN, STRUCTURE_TOWER, STRUCTURE_STORAGE]
         },
     }
 }

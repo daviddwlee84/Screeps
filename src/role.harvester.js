@@ -22,6 +22,10 @@ var roleHarvester = {
                 ENERGY_CONFIG.TRANSFER.TARGET, ENERGY_CONFIG.TRANSFER.SPECIFIC,
                 (structure) => structure.energy < structure.energyCapacity
             );
+            if (target == undefined) {
+                // if no regular energy container found, try to use storage if any
+                target = creep.room.storage;
+            }
             if (target) {
                 creep.memory.idleCount = 0
                 // If found a structure, then transfer energy to the nearest target
